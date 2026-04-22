@@ -1,6 +1,6 @@
 "use client";
 
-export function getRedirectPath(): string {
+export default function getRedirectPath(): string {
     if (typeof window === "undefined") return "/login";
 
     const userID = localStorage.getItem("userId");

@@ -1,6 +1,6 @@
 "use client";
 
-import { getRedirectPath } from "@/utils/routing";
+import getRedirectPath from "@/utils/routing";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
