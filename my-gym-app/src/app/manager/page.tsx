@@ -1,6 +1,6 @@
 "use client";
 
-import { getBasicProfile } from "@/src/api/profile";
+import { getBasicProfile } from "@/api/profile";
 import { setItem } from "@/utils/storage";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
