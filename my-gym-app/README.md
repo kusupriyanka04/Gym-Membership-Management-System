@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gym Manager App — Next.js Frontend
 
-## Getting Started
+A Next.js web application for managing gym memberships with Google OAuth login.
 
-First, run the development server:
+## Setup Instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository
+   git clone https://github.com/YOUR_USERNAME/my-gym-app.git
+   cd my-gym-app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+   npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Create environment file
+   Create a .env.local file in the root folder and add:
+   NEXT_PUBLIC_API_URL=https://backend.membes.store
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Run the development server
+   npm run dev
 
-## Learn More
+5. Open browser and go to:
+   http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Value |
+|---|---|
+| NEXT_PUBLIC_API_URL | https://backend.membes.store |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture Overview
 
-## Deploy on Vercel
+| Folder | Purpose |
+|---|---|
+| app/login | Login page with Google OAuth |
+| app/splash | Reads localStorage and routes user |
+| app/manager | Handles Google redirect, saves userID |
+| app/create-profile | Profile creation form |
+| app/dashboard | Main dashboard after login |
+| api/auth.ts | Google login redirect function |
+| api/profile.ts | GET and PATCH profile API calls |
+| utils/storage.ts | localStorage helper functions |
+| utils/routing.ts | Routing logic based on localStorage |
+| __tests__ | All unit and integration tests |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Running Tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+npm test
+
+## Tech Stack
+
+- Next.js 14 App Router
+- TypeScript
+- localStorage for state persistence
+- fetch for API calls
