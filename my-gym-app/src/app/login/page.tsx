@@ -1,246 +1,3 @@
-// "use client";
-
-// import redirectToGoogle from "@/api/auth";
-// import { useEffect, useState } from "react";
-
-// const businessTypes = [
-//   "Fitness Centre",
-//   "Yoga Studio",
-//   "Wellness Center",
-//   "MMA & Boxing Hub",
-//   "Dance Studio",
-//   "Physiotherapy",
-// ];
-
-// export default function LoginPage() {
-//   const [showLogin, setShowLogin] = useState(false);
-//   const [currentIndex, setCurrentIndex] = useState(0);
-//   const [visible, setVisible] = useState(true);
-
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setVisible(false);
-//       setTimeout(() => {
-//         setCurrentIndex((prev) => (prev + 1) % businessTypes.length);
-//         setVisible(true);
-//       }, 400);
-//     }, 2500);
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-//   if (showLogin) {
-//     return (
-//       <div
-//         style={{
-//           width: "100%",
-//           height: "100vh",
-//           backgroundColor: "#111122",
-//           fontFamily: "sans-serif",
-//           display: "flex",
-//           flexDirection: "column",
-//           justifyContent: "center",
-//         alignItems: "center",
-//         position: "relative",
-//           overflow: "hidden",
-//         }}
-//       >
-//         <div
-//           style={{
-//             width: "100%",
-//             height: "45vh",
-//             overflow: "hidden",
-//             flexShrink: 0,
-//           }}
-//         >
-//           <img
-//             src="https://img.freepik.com/premium-photo/fitness-smile-portrait-friends-gym-teamwork-support-workout-motivation-coaching-health-with-people-training-sports-center-cardio-endurance-wellness-challenge_590464-130787.jpg"
-//             alt="Gym-Poster"
-//             style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-//           />
-//         </div>
-//         <div
-//           style={{
-//             flex: 1,
-//           backgroundColor: "#111122",
-//           padding: "36px 28px",
-//           display: "flex",
-//           flexDirection: "column",
-//           justifyContent: "center"
-//           }}
-//         >
-//           <h2
-//             style={{
-//               color: "#ffffff",
-//               fontSize: "28px",
-//               fontWeight: "700",
-//               margin: "0 0 8px 0",
-//             }}
-//           >
-//             Hi there!
-//           </h2>
-//           <p
-//             style={{
-//               color: "#aaaaaa",
-//               fontSize: "14px",
-//               margin: "0 0 36px 0",
-//               lineHeight: "1.5"
-//             }}
-//           >
-//             Sign in to keep things running smoothly.
-//           </p>
-//           <button
-//             onClick={redirectToGoogle}
-//             style={{
-//               display: "flex",
-//               alignItems: "center",
-//               justifyContent: "center",
-//               gap: "12px",
-//               width: "100%",
-//               padding: "16px",
-//               borderRadius: "12px",
-//               border: "none",
-//               backgroundColor: "#2d2d44",
-//               color: "#ffffff",
-//               fontSize: "15px",
-//               fontWeight: "500",
-//               cursor: "pointer",
-//               marginBottom: "14px"
-//             }}
-//           >
-//             <img
-//               src="https://www.google.com/favicon.ico"
-//               width="20"
-//               height="20"
-//               alt="Google"
-//             />
-//             Continue with Google
-//           </button>
-//         </div>
-//       </div>
-//     );
-//   }
-
-//   return (
-//     <div
-//       style={{
-//         width: "100%",
-//         height: "100vh",
-//         backgroundColor: "#111122",
-//         fontFamily: "sans-serif",
-//         display: "flex",
-//         flexDirection: "column",
-//         overflow: "hidden",
-//         position: "relative",
-//       }}
-//     >
-//       <div
-//         style={{
-//           width: "100%",
-//           height: "100vh",
-//           position: "absolute",
-//           top: 0,
-//           left: 0,
-//         }}
-//       >
-//         <img
-//           src="https://img.freepik.com/premium-photo/fitness-smile-portrait-friends-gym-teamwork-support-workout-motivation-coaching-health-with-people-training-sports-center-cardio-endurance-wellness-challenge_590464-130787.jpg"
-//           alt="Gym-Poster"
-//           style={{
-//             width: "100%",
-//             height: "100%",
-//             objectFit: "scale-down",
-//             objectPosition: "top",
-//           }}
-//         />
-//         <div
-//           style={{
-//             position: "absolute",
-//             bottom: 0,
-//             left: 0,
-//             right: 0,
-//             height: "70%",
-//             background: "linear-gradient(to top, #111122 60%, transparent)",
-//           }}
-//         ></div>
-//         <div
-//           style={{
-//             position: "absolute",
-//             bottom: 0,
-//             left: 0,
-//             right: 0,
-//             padding: "36px 28px 48px 28px",
-//           }}
-//         >
-//           <p
-//             style={{
-//               color: "#ffffff",
-//               fontSize: "32px",
-//               fontWeight: "700",
-//               margin: "0 0 4px 0",
-//               lineHeight: "1.2",
-//             }}
-//           >
-//             Manage Your
-//           </p>
-//           <p
-//             style={{
-//               color: "#c8ff00",
-//               fontSize: "32px",
-//               fontWeight: "700",
-//               fontStyle: "italic",
-//               margin: "0 0 4px 0",
-//               lineHeight: "1.2",
-//             }}
-//           >
-//             Fitness Center
-//           </p>
-//           <p
-//             style={{
-//               color: "#ffffff",
-//               fontSize: "32px",
-//               fontWeight: "700",
-//               margin: "0 0 12px 0",
-//               lineHeight: "1.2",
-//             }}
-//           >
-//             with us!
-//           </p>
-//           <p
-//             style={{
-//               color: "#cccccc",
-//               fontSize: "14px",
-//               margin: "0 0 32px 0",
-//               lineHeight: "1.6",
-//             }}
-//           >
-//             All your business operations in one place, ready for you to take
-//             charge.
-//           </p>
-
-//           <button
-//             onClick={() => setShowLogin(true)}
-//             style={{
-//               width: "100%",
-//               padding: "18px",
-//               borderRadius: "14px",
-//               border: "none",
-//               backgroundColor: "#c8ff00",
-//               color: "#111111",
-//               fontSize: "16px",
-//               fontWeight: "700",
-//               cursor: "pointer",
-//             }}
-//           >
-//             Get Started
-//           </button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -357,7 +114,7 @@ export default function LoginPage() {
               Continue with Google
             </button>
 
-            {/* <button
+            <button
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -416,7 +173,7 @@ export default function LoginPage() {
                 color: "white"
               }}>f</span>
               Continue with Facebook
-            </button> */}
+            </button>
 
           </div>
         </div>
@@ -481,11 +238,7 @@ export default function LoginPage() {
             fontSize: "28px",
             fontWeight: "700",
             fontStyle: "italic",
-            margin: "0 0 4px 0",
-            // transition: "opacity 0.4s ease, transform 0.4s ease",
-            // opacity: visible ? 1 : 0,
-            // transform: visible ? "translateY(0)" : "translateY(-10px)"
-            
+            margin: "0 0 4px 0",          
           }}>
             {businessTypes[currentIndex]}
           </p>
