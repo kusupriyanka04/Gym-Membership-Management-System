@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getItem, setItem } from "@/utils/storage";
 import { useRouter } from "next/navigation";
 
@@ -21,6 +21,25 @@ export default function CreateProfilePage() {
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+    const userID = getItem("userID");
+
+    if (!userID) {
+      router.replace("/login");
+      return;
+    }
+
+    const interval = setInterval(() => {
+      const id = getItem("userID");
+      if (!id) {
+        clearInterval(interval);
+        router.replace("/login");
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
